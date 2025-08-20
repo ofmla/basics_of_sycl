@@ -1,0 +1,36 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+  echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+# CUDA compiler
+  apt-get update \
+  && apt-get install -y build-essential vim lsb-release wget curl software-properties-common gnupg \
+  && wget -q -O cuda-keyring.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb \
+  && dpkg -i cuda-keyring.deb && rm cuda-keyring.deb \
+  && apt-get -y update \
+  && apt-get install -y --no-install-recommends nvidia-open \
+  && apt-get install -y --no-install-recommends cuda-compiler-12-0 \
+  && apt-get -y clean autoremove \
+  && rm -rf /var/lib/apt/lists/*
+
+# Intel oneapi
+ wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+  | gpg --dearmor | tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null \
+ && echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" \
+  | tee /etc/apt/sources.list.d/oneAPI.list
+
+ apt-get update \
+ && apt-get install -y --no-install-recommends \
+    intel-oneapi-compiler-dpcpp-cpp \
+ && apt-get -y clean autoremove \
+ && rm -rf /var/lib/apt/lists/*
+
+# Codeplay plugin
+ curl -LOJ "https://developer.codeplay.com/api/v1/products/download?product=oneapi&variant=nvidia&filters[]=linux" \
+ && mkdir -p /opt/intel/oneapi/2025.2/lib/ \
+ && bash oneapi-for-nvidia-gpus-2025.2.0-rocm-all-linux.sh -y \
+ && rm oneapi-for-nvidia-gpus-2025.2.0-rocm-all-linux.sh
+
+
