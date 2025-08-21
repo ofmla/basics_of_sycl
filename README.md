@@ -9,9 +9,7 @@ The course is designed to equip programmers with no prior SYCL knowledge with ba
 
 ## Setting Up a SYCL Environment
 
-This course is part of a series of HPC training events that I usually teach once a year, targeted at HPC users with access to one of the supercomputers at the Senai Cimatec computing center. However, you can also proceed with Intel oneAPI installed on your personal computer. The compiler is now called `icpx`, previously known as `dpcpp`, which is why installation packages are often labeled as `dpcpp`. Additionally, oneAPI encompasses a broad suite of Intel tools and libraries for SYCL, including `icpx`/`dpcpp`. Another SYCL implementation option is AdaptiveCpp, with recent tests proving successful so far. Note that a basic Intel oneAPI installation supports only Intel hardware unless specific plugins (e.g., Codeplay ones) are added. On the supercomputers we access, only NVIDIA GPUs are available, so the provided Apptainer recipe supports the Nvidia/CUDA plugin for AdaptiveCpp.
-
-## Building the Apptainer Container
+This course is part of a series of HPC training events that I usually teach once a year, targeted at HPC users with access to one of the supercomputers at the Senai Cimatec computing center. Alternatively, you can use Intel oneAPI DPC++/C++ Compiler and/or AdaptiveCpp (the two mainstream SYCL compilers) installed on your personal computer. For installation details, refer to the respective [AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/develop/doc/installing.md) and [Intel oneAPI](https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-linux/2025-2/overview.html) guides. Note that a basic Intel oneAPI installation supports only Intel hardware unless specific plugins (e.g., Codeplay ones) are added. On the supercomputers we access, only NVIDIA GPUs are available, so the provided Apptainer recipe supports the [Nvidia/CUDA plugin for Intel oneAPI DPC++/C++](https://developer.codeplay.com/products/oneapi/nvidia/guides/).
 
 ### Building the Apptainer container
 The first step is to build the containers on OGBON. This is done by running the following commands:
