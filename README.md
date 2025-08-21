@@ -49,4 +49,115 @@ Run the Singularity container interactively:
 ```
 [USER_NAME@c036 ~]$ singularity shell --nv --writable-tmpfs icpx-cuda.sif
 ```
+or
+```
+[USER_NAME@c036 ~]$ singularity shell --nv --writable-tmpfs acpp-cuda.sif
+```
 Remember to change USER_NAME, PROJECT_NAME to your own.
+
+## Check your SYCL devices
+Since OGBON nodes are equipped with NVIDIA GPUs, you can run nvidia-smi in your terminal after launching either of the two containers in interactive mode to verify proper functionality. An example of the output is:
+```
+Apptainer> nvidia-smi 
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:60:00.0 Off |                    0 |
+| N/A   42C    P0    44W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla V100-SXM2...  On   | 00000000:61:00.0 Off |                    0 |
+| N/A   40C    P0    45W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla V100-SXM2...  On   | 00000000:88:00.0 Off |                    0 |
+| N/A   42C    P0    45W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla V100-SXM2...  On   | 00000000:89:00.0 Off |                    0 |
+| N/A   41C    P0    44W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
+If running the oneAPI container you can check what devices are seen by your SYCL runtime with the command `sycl-ls`
+```
+Apptainer> source /opt/intel/oneapi/setvars.sh
+ 
+:: initializing oneAPI environment ...
+   bash: BASH_VERSION = 5.1.16(1)-release
+   args: Using "$@" for setvars.sh arguments: 
+:: compiler -- latest
+:: debugger -- latest
+:: dev-utilities -- latest
+:: dpl -- latest
+:: tbb -- latest
+:: umf -- latest
+:: oneAPI environment initialized ::
+ 
+Apptainer> sycl-ls
+[cuda:gpu][cuda:0] NVIDIA CUDA BACKEND, Tesla V100-SXM2-32GB 7.0 [CUDA 12.0]
+[cuda:gpu][cuda:1] NVIDIA CUDA BACKEND, Tesla V100-SXM2-32GB 7.0 [CUDA 12.0]
+[cuda:gpu][cuda:2] NVIDIA CUDA BACKEND, Tesla V100-SXM2-32GB 7.0 [CUDA 12.0]
+[cuda:gpu][cuda:3] NVIDIA CUDA BACKEND, Tesla V100-SXM2-32GB 7.0 [CUDA 12.0]
+[opencl:cpu][opencl:0] Intel(R) OpenCL, Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz OpenCL 3.0 (Build 0) [2025.20.8.0.06_160000]
+```
+If runing the acpp container run `acpp-info` which provides some basic infomation about the platform
+```
+=================Backend information===================
+Loaded backend 0: CUDA
+  Found device: Tesla V100-SXM2-32GB
+  Found device: Tesla V100-SXM2-32GB
+  Found device: Tesla V100-SXM2-32GB
+  Found device: Tesla V100-SXM2-32GB
+Loaded backend 1: OpenMP
+  Found device: AdaptiveCpp OpenMP host device
+
+=================Device information===================
+***************** Devices for backend CUDA *****************
+Device 0:
+ General device information:
+  Name: Tesla V100-SXM2-32GB
+  Backend: CUDA
+  Platform: Backend 0 / Platform 0
+  Vendor: NVIDIA
+  Arch: sm_70
+  Driver version: 12000
+  Is CPU: 0
+  Is GPU: 1
+  ... 
+  ...
+
+Device 1:
+ ...
+
+Device 2:
+ ...
+
+Device 3:
+ ...
+
+***************** Devices for backend OpenMP *****************
+Device 0:
+ General device information:
+  Name: AdaptiveCpp OpenMP host device
+  Backend: OpenMP
+  Platform: Backend 4 / Platform 0
+  Vendor: the AdaptiveCpp project
+  Arch: <native-cpu>
+  Driver version: 1.2
+  Is CPU: 1
+  Is GPU: 0
+  ...
+```
