@@ -169,7 +169,8 @@ This repository contains course material and code assembled from various sources
 - **Codeplay’s SYCL Academy Repository**: Code licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
 - **SYCL Workshop by EuroCC National Competence Center Sweden (ENCCS)**: Code licensed under the [MIT License](https://opensource.org/licenses/MIT), with additional material under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
 - **Gray Scott SYCL Tutorial**: Code licensed under the [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
-- **Original Code: gravmod3d_sycl**: My own contributions, licensed under the [BSD 3-clause license](https://opensource.org/license/bsd-3-clause).
+- **Original Code: gravmod3d_sycl**: My own contributions, licensed under the [BSD 3-clause license](https://opensource.org/license/bsd-3-clause). The Data used is available under
+the [Creative Commons Attribution 4.0 License (CC-BY)](https://creativecommons.org/licenses/by/4.0/) (See [gravmod3d](https://github.com/ofmla/gravmod3d#gravmod3d)).
 - **Slides in doc folder**: licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
 
 ### License Summary
