@@ -169,13 +169,14 @@ This repository contains course material and code assembled from various sources
 - **Codeplay’s SYCL Academy Repository**: Code licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
 - **SYCL Workshop by EuroCC National Competence Center Sweden (ENCCS)**: Code licensed under the [MIT License](https://opensource.org/licenses/MIT), with additional material under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
 - **Gray Scott SYCL Tutorial**: Code licensed under the [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
-- **Original Code**: My own contributions, licensed under the [MIT License](https://opensource.org/licenses/MIT).
-- **Slides**: licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
+- **Original Code: gravmod3d_sycl**: My own contributions, licensed under the [BSD 3-clause license](https://opensource.org/license/bsd-3-clause).
+- **Slides in doc folder**: licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
 
 ### License Summary
 The repository is a composite work, and the applicable license depends on the specific component:
-- Code from Intel’s SYCL 101, ENCCS SYCL Workshop, and my original contributions is licensed under the MIT License.
-- Code and materials from Codeplay’s SYCL Academy, ENCCS additional material, and slides, are licensed under the CC-BY-4.0 License.
+- Code from Intel’s SYCL 101 and ENCCS SYCL Workshop is licensed under the MIT License.
+- Code from Codeplay’s SYCL Academy is licensed under the CC-BY-4.0 License.
 - Code from the Gray Scott SYCL Tutorial is licensed under the GPL-3.0 License.
+- Code from gravmod3d_sycl folder is licensed under BSD 3-clause license.
 
 Users are encouraged to review the full text of each license linked above to understand their rights and obligations. When using or distributing this material, please attribute the original sources as required by the respective licenses.
