@@ -7,7 +7,7 @@
 
 template<typename T>
 T gr3dprm(T x, T t, T y, T z, T sd, T alpha, T tog, T z1) {
-    // Constants and variables (unchanged from your code)
+    // Constants and variables
     T dc, z2, al5, al6, al4, al8, q1, q2, r1, r2, r3, r4;
     T t1, t2, t3, t4, t5, ttr1, tt2, ttr2, ter1, ter2, ter3, ter4, ter5;
     T ter6, ter7, ter8, ter9, ter10, ter11;
