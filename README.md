@@ -161,3 +161,21 @@ Device 0:
   Is GPU: 0
   ...
 ```
+## License
+
+This repository contains course material and code assembled from various sources, likened to a "Frankenstein creation." I have strictly adhered to the terms of the respective licenses to ensure complete compliance. The material and code are derived from the following sources:
+
+- **Intel’s SYCL 101 Course**: Code licensed under the [MIT License](https://opensource.org/licenses/MIT).
+- **Codeplay’s SYCL Academy Repository**: Code licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
+- **SYCL Workshop by EuroCC National Competence Center Sweden (ENCCS)**: Code licensed under the [MIT License](https://opensource.org/licenses/MIT), with additional material under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
+- **Gray Scott SYCL Tutorial**: Code licensed under the [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
+- **Original Code**: My own contributions, licensed under the [MIT License](https://opensource.org/licenses/MIT).
+- **Slides**: licensed under the [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/).
+
+### License Summary
+The repository is a composite work, and the applicable license depends on the specific component:
+- Code from Intel’s SYCL 101, ENCCS SYCL Workshop, and my original contributions is licensed under the MIT License.
+- Code and materials from Codeplay’s SYCL Academy, ENCCS additional material, and slides, are licensed under the CC-BY-4.0 License.
+- Code from the Gray Scott SYCL Tutorial is licensed under the GPL-3.0 License.
+
+Users are encouraged to review the full text of each license linked above to understand their rights and obligations. When using or distributing this material, please attribute the original sources as required by the respective licenses.
